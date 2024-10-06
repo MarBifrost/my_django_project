@@ -1,0 +1,47 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order</title>
+    <link rel="stylesheet" href="{% static 'order/css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <img src="{% static 'order/css/FhuVKfguQuDshEgiW6LHSa-1200-80.jpg' %}" class="product_image" alt="img">
+    </div>
+    <form class="order_container">
+        <label for="product">
+            Product:
+        </label>
+        <input type="text" id="product" name="product">
+        <label for="name">
+            Name:
+        </label>
+        <input type="text" id="name" name="name">
+        <label for="last_name">
+            Last Name:
+        </label>
+        <input type="text" id="last_name" name="last_name">
+        <label for="phone">
+            Phone:
+        </label>
+        <input type="text" id="phone" name="phone">
+        <label for="address">
+            Shipping Address:
+        </label>
+        <textarea id="address" name="address" rows="3"></textarea>
+
+
+    </form>
+    <form action="{% url 'order:payment_success' %}">
+        <button type="submit">Place Order</button>
+    </form>
+    <a href="http://127.0.0.1:8000/store/" style="text-decoration: none; background-color: white; width:50px; color: black; text-align: center;">Back</a>
+
+
+</body>
+</html>
