@@ -38,7 +38,7 @@ The Order app manages the ordering process and showing if payment is successful
   # Project structure:
 
 ```bash
-├── <project_name>/
+├── <Store and Orders>/
 │   ├── __init__.py
 │   ├── settings.py
 │   ├── urls.py
