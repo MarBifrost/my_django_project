@@ -105,8 +105,8 @@ The order model represents an order placed by a user. It includes fields for:
   - logout_views
 
 - Order Views
-  -order
-  paynment_success
+  - order
+  - paynment_success
 
 # Templates
 -store/templates/store/index.html
