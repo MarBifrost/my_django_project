@@ -1,3 +1,10 @@
+# Ignore the .idea directory
+.idea/
+
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
