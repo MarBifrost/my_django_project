@@ -20,9 +20,23 @@ The Order app manages the ordering process and showing if payment is successful
 
   # Technologies Used
   - Python 3.*
-  - Django 3.* or above
   - SQlite (default database)
   - HTML/CSS for front-end templates
+  - asgiref==3.8.1
+  - certifi==2024.8.30
+  - charset-normalizer==3.4.0
+  - Django==5.1.1
+  - django-versatileimagefield==3.1
+  - idna==3.10
+  - libmagic==1.0
+  - pillow==10.4.0
+  - python-magic==0.4.27
+  - python-magic-bin==0.4.14
+  - requests==2.32.3
+  - sqlparse==0.5.1
+  - tzdata==2024.2
+  - urllib3==2.2.3
+
  
 
   # Installation
@@ -46,6 +60,7 @@ The Order app manages the ordering process and showing if payment is successful
 │
 ├── store/
 │   ├── migrations/
+    |── products/
 │   ├── templates/
 │   │   └── store/
 │   │       ├── index.html
@@ -79,6 +94,8 @@ The Order app manages the ordering process and showing if payment is successful
   - /store/: Displays the store index page
   - /store/login/: displays the login page
   - /store/logout/: Logs the user out
+  - /store/products/: Shows information about products and it's details in JSoN format etrieved from the database
+  - /store/categories/: shows information about categories in JSoN format retrieved from the database
  
 - Order app
   Url patterns
@@ -89,13 +106,14 @@ The Order app manages the ordering process and showing if payment is successful
 # Models
 
 Order Model
-The order model represents an order placed by a user. It includes fields for:
-- Id - a UUID field serving as the primary key
-- Product - a char field for the product name
-- name - A char field for user's first name
+The order model represents two tables: Products and Categories. 
+- Table Product includes fields for:
+- name - a char field for the product name
+- price - an int field for the product price
+- expiry_date - A date field for product's expiration date
 - last_name -  A char field for user's last name
-- phone -  a char field for a user's phone number
-- shipping_address: A char field for the fhipping address
+- category -  a ForeignKty field for connection with Category table
+- photo: A VersatileImage field, which represents image's URL from the specific folder
 
 
 # Views
@@ -103,6 +121,8 @@ The order model represents an order placed by a user. It includes fields for:
   - store:
   - login_views
   - logout_views
+  - return_products
+  - return_categories
 
 - Order Views
   - order
@@ -118,12 +138,16 @@ The order model represents an order placed by a user. It includes fields for:
 # Running the application
 -python manage.py runserver
 you can access the following pages at following links:
-- admin autorization page in your browser at http://127.0.0.1:8000/admin
+- admin autorization page in your browser at http://127.0.0.1:8000/
+    - username - admin
+    - password - admin123
 - autorization to the store page: http://127.0.0.1:8000/store/login/
     - username - 'mariam'
     - password - 'mariam123'
 - after a successful login it redirects to the main store page: http://127.0.0.1:8000/store/
 - From store page you can move to the order page: http://127.0.0.1:8000/order/
 - At the order page you can click on Place order and find yourself on the 'payment_success' page, or push to the 'Back' button and go back to the store page
-- If you'll fill the form on the order page, details of your order will store in product's database. 
+- If you'll fill the form on the order page, details of your order will store in product's database.
+- Retrieved data from Product's database: http://127.0.0.1:8000/store/products/
+- Retrieved data from Category's database: http://127.0.0.1:8000/store/products/
 
