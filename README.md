@@ -124,12 +124,16 @@ The order model represents two tables: Products and Categories.
 # Running the application
 -python manage.py runserver
 you can access the following pages at following links:
-- admin autorization page in your browser at http://127.0.0.1:8000/admin
+- admin autorization page in your browser at http://127.0.0.1:8000/
+    - username - admin
+    - password - admin123
 - autorization to the store page: http://127.0.0.1:8000/store/login/
     - username - 'mariam'
     - password - 'mariam123'
 - after a successful login it redirects to the main store page: http://127.0.0.1:8000/store/
 - From store page you can move to the order page: http://127.0.0.1:8000/order/
 - At the order page you can click on Place order and find yourself on the 'payment_success' page, or push to the 'Back' button and go back to the store page
-- If you'll fill the form on the order page, details of your order will store in product's database. 
+- If you'll fill the form on the order page, details of your order will store in product's database.
+- Retrieved data from Product's database: http://127.0.0.1:8000/store/products/
+- Retrieved data from Category's database: http://127.0.0.1:8000/store/products/
 
