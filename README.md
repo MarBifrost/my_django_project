@@ -20,9 +20,23 @@ The Order app manages the ordering process and showing if payment is successful
 
   # Technologies Used
   - Python 3.*
-  - Django 3.* or above
   - SQlite (default database)
   - HTML/CSS for front-end templates
+  - asgiref==3.8.1
+  - certifi==2024.8.30
+  - charset-normalizer==3.4.0
+  - Django==5.1.1
+  - django-versatileimagefield==3.1
+  - idna==3.10
+  - libmagic==1.0
+  - pillow==10.4.0
+  - python-magic==0.4.27
+  - python-magic-bin==0.4.14
+  - requests==2.32.3
+  - sqlparse==0.5.1
+  - tzdata==2024.2
+  - urllib3==2.2.3
+
  
 
   # Installation
