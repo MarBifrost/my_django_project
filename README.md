@@ -46,6 +46,7 @@ The Order app manages the ordering process and showing if payment is successful
 │
 ├── store/
 │   ├── migrations/
+    |── products/
 │   ├── templates/
 │   │   └── store/
 │   │       ├── index.html
@@ -79,6 +80,8 @@ The Order app manages the ordering process and showing if payment is successful
   - /store/: Displays the store index page
   - /store/login/: displays the login page
   - /store/logout/: Logs the user out
+  - /store/products/: Shows information about products and it's details in JSoN format etrieved from the database
+  - /store/categories/: shows information about categories in JSoN format retrieved from the database
  
 - Order app
   Url patterns
@@ -89,13 +92,14 @@ The Order app manages the ordering process and showing if payment is successful
 # Models
 
 Order Model
-The order model represents an order placed by a user. It includes fields for:
-- Id - a UUID field serving as the primary key
-- Product - a char field for the product name
-- name - A char field for user's first name
+The order model represents two tables: Products and Categories. 
+- Table Product includes fields for:
+- name - a char field for the product name
+- price - an int field for the product price
+- expiry_date - A date field for product's expiration date
 - last_name -  A char field for user's last name
-- phone -  a char field for a user's phone number
-- shipping_address: A char field for the fhipping address
+- category -  a ForeignKty field for connection with Category table
+- photo: A VersatileImage field, which represents image's URL from the specific folder
 
 
 # Views
@@ -103,6 +107,8 @@ The order model represents an order placed by a user. It includes fields for:
   - store:
   - login_views
   - logout_views
+  - return_products
+  - return_categories
 
 - Order Views
   - order
