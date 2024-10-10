@@ -48,7 +48,7 @@ def return_products(request):
 
 
 def return_categories(request):
-    res = Category.objects.all().values('name')
+    res = Category.objects.all().values('id', 'name')
     return JsonResponse(list(res), safe=False)
 
 

@@ -8,6 +8,7 @@ from versatileimagefield.fields import VersatileImageField
 
 
 class Category(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     sub_category = models.ManyToManyField('self', blank=True, symmetrical=False)
 
