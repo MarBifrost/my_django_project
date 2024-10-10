@@ -1,7 +1,5 @@
 
 from django.db import models
-from pkg_resources import null_ns_handler
-# from django.contrib.auth.models import User
 from versatileimagefield.fields import VersatileImageField
 
 
