@@ -1,37 +1,25 @@
-{% load static %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store</title>
-    <link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
-</head>
-<body>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-image: linear-gradient(to right top, #cfeff2, #b9b3c5, #cdd3ab, #b6f5a1, #93d9f8);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            margin:0;
-            padding: 0;
-        }
-    </style>
-    <h1>Welcome to the Store</h1>
-    <img src="{% static 'order/css/FhuVKfguQuDshEgiW6LHSa-1200-80.jpg' %}" class="product_image" alt="img">
-    <form action="{% url 'order:order' %}" method="get">
-        <button type="submit">Click to order</button>
-    </form>
-    <form action="{% url 'store:logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Logout</button>
-    </form>
-</body>
-</html>
+{% extends "./base.html" %}
+<!--{% load static %}-->
+
+{% block title %}Store{% endblock%}
+
+{% block header %}
+    Welcome to the store
+{% endblock %}
 
 
+{% block content %}
+    <h1>Categories:</h1>
+    {% for category in categories %}
+        <ul>
+            <span>{{category.name}}</span>
+        </ul>
+    {% endfor%}
+    <h1>Products:</h1>
+    {% for product in products %}
+        <ul>
+            <span>{{product.name}}</span>
+        </ul>
+    {% endfor%}
+{% endblock %}

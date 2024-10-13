@@ -4,7 +4,6 @@ from versatileimagefield.fields import VersatileImageField
 
 
 
-
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
@@ -19,7 +18,6 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=100)
     price = models.IntegerField(null=True)
-    expiry_date = models.DateField(blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     photo = VersatileImageField(
         'image',
