@@ -7,23 +7,10 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-image: linear-gradient(to right top, #cfeff2, #b9b3c5, #cdd3ab, #b6f5a1, #93d9f8);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            margin:0;
-            padding: 0;
-        }
-    </style>
     <header>
         <h1>{% block header %}{% endblock %}</h1>
     </header>
+
     <main>
         {% block content %}
         {% endblock %}
