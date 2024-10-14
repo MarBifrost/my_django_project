@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "Gfont";
+    src: url("RobotoMono-VariableFont_wght.ttf") format("truetype");
+    font-weight: 500;
+}
+
+
+
+body {
+    font-family: "Gfont", serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right top, #cfeff2, #b9b3c5, #cdd3ab, #b6f5a1, #93d9f8);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin:0;
+    padding: 0;
+}
+
+ul {
+    background-color: #bdb2b2;
+    width: 450px;
+    height: 130px;
+    color: #5E5694;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    opacity: 0.9;
+}
+
+h1 {
+    color: #4c5085;
+}
+
+a {
+    text-decoration: none;
+}
