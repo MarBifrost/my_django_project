@@ -1,0 +1,16 @@
+{%extends "./base.html"%}
+{%block title%}Products:{%endblock%}
+
+{%block header%}
+Products in {{category.name}}
+{%endblock%}
+
+
+{% block content %}
+    {%for product in products%}
+        <ul>
+            <span>{{product.name}}</span>:
+        </ul>
+    {%endfor%}
+
+{% endblock %}

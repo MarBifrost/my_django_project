@@ -1,0 +1,15 @@
+{%extends "./base.html"%}
+{%block title%}product details{%endblock%}
+
+{%block header%}
+    Detailed view of product
+{%endblock%}
+
+
+{%block content%}
+    <h1>{{product.name}}</h1>
+    <img src="{{product.photo.url}}" alt="{{product.name}}">
+    <p> Price: {{product.price}} gel</p>
+    <p>Category: {{product.category.name}}</p>
+
+{%endblock%}

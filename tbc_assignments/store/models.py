@@ -7,12 +7,11 @@ from versatileimagefield.fields import VersatileImageField
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
-    # sub_category = models.ManyToManyField('self', blank=True, symmetrical=False)
-    parents = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
+    parent = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
 
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.id} {self.name} {self.parent}'
 
 
 class Product(models.Model):
@@ -27,4 +26,4 @@ class Product(models.Model):
 
     def __str__(self):
         photo_exist=self.photo if self.photo else None
-        return f'{self.name}, {self.price}, {self.category.name}, {photo_exist}'
+        return f'{self.name} {self.price} {self.category.name} {photo_exist}'

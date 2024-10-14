@@ -1,25 +1,21 @@
+{%extends "./base.html"%}
+{%block title%}Categories{%endblock%}
 
-{% extends "./base.html" %}
-<!--{% load static %}-->
-
-{% block title %}Store{% endblock%}
-
-{% block header %}
-    Welcome to the store
-{% endblock %}
+{%block header%}
+    Category page
+{%endblock%}
 
 
-{% block content %}
+{%block content%}
     <h1>Categories:</h1>
-    {% for category in categories %}
+    {%for category in categories%}
         <ul>
-            <span>{{category.name}}</span>
+    <a href="/category/{{category.id}}/{{product_views_by_category.name}}" target="_blank">
+                {{category.name}} ({{category.product_count}} products)</a>
         </ul>
-    {% endfor%}
-    <h1>Products:</h1>
-    {% for product in products %}
-        <ul>
-            <span>{{product.name}}</span>
-        </ul>
-    {% endfor%}
-{% endblock %}
+    {%endfor%}
+    {{products_count}}
+
+
+
+{%endblock%}
