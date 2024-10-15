@@ -1,0 +1,22 @@
+{%extends "./base.html"%}
+{%block title%}product details{%endblock%}
+
+{%block header%}
+    Detailed view of product
+{%endblock%}
+
+
+{%block content%}
+    <h1>{{product.name}}</h1>
+    {% if product.photo %}
+        <img src="{{product.photo.url}}" alt="{{product.name}}">
+    {% else %}
+        <p>No image avaliable</p>
+    {% endif %}
+    <p> Price: {{product.price}} GEL</p>
+    <p>Category: {{product.category.name}}</p>
+    <p>Quantity: {{ product.quantity }}</p>
+
+    <a href="{% url 'store:category'%}">Back to categories</a>
+
+{%endblock%}

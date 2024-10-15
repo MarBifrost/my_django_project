@@ -1,16 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.db.models import Count
-
+from django.db.models import Sum, F, Max, Min, Avg
 
 from .models import Product, Category
-from django.http import JsonResponse
-
-
-
-
-
 
 
 def login_views(request):
@@ -34,51 +27,30 @@ def logout_views(request):
 
 
 def category(request):
-    categories =  Category.objects.exclude(parent_id=None)
+    categories = Category.objects.exclude(parent_id=None)
     for category in categories:
-        category.product_count=Product.objects.filter(category=category).count()
+        category.product_count = Product.objects.filter(category=category).count()
     return render(request, 'store/index.html', {'categories': categories})
 
 
 def product_views_by_category(request, category_id):
     category = Category.objects.get(id=category_id)
     products = Product.objects.filter(category=category)
+    total_price = products.aggregate(total_price=Sum(F('quantity') * F('price')))
+    the_most_price = products.aggregate(max=Max('price'))
+    the_min_price = products.aggregate(min=Min('price'))
+    the_avg_price = products.aggregate(avg=Avg('price'))
     context = {
         'products': products,
-        'category': category
+        'category': category,
+        'total_price': total_price['total_price'],
+        'the_most_price': the_most_price['max'],
+        'the_min_price': the_min_price['min'],
+        'the_avg_price': the_avg_price['avg'],
     }
     return render(request, 'store/products_list.html', context)
 
 
-def full_details_of_products(request):
-    product = Product.objects.all()
-    return render(request, 'store/product_full_info.html', {'products': product})
-
-
-# def category(request):
-#     categories =  Category.objects.exclude(parent_id=None)
-#     products_in_categories = Product.objects.filter(category__in=category).count()
-#     context = {'categories': categories, 'product_count': products_in_categories}
-#     return render(request, 'store/index.html', context)
-
-
-# def id_products(request):
-#     products = Product.objects.prefetch_related('category').all()
-#     res = []
-#     for product in products:
-#         res.append({
-#             'id': product.id,
-#             'name': product.name,
-#             'price': product.price,
-#             'category': product.category.name,
-#             'photo': product.photo.url if product.photo else None
-#         })
-#     return JsonResponse(list(res), safe=False)
-#
-#
-# def return_categories(request):
-#     res = Category.objects.all().values('id', 'name')
-#     return JsonResponse(list(res), safe=False)
-
-
-
+def product_details(request, product_id):
+    product = Product.objects.get(id=product_id)
+    return render(request, 'store/prod_details.html', {'product': product})
