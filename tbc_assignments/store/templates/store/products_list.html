@@ -2,15 +2,26 @@
 {%block title%}Products:{%endblock%}
 
 {%block header%}
-Products in {{category.name}}
+Products in the category: {{category.name}}
 {%endblock%}
 
 
 {% block content %}
     {%for product in products%}
         <ul>
-            <span>{{product.name}}</span>:
+            <a href="{% url 'store:product_details' category.id %}">
+                {{product.name}}:
+                Price - {{product.price}}
+                Quantity - {{ product.quantity }}
+            </a>
         </ul>
     {%endfor%}
+
+    <p>Total price: {{ total_price }}</p>
+    <p>Max price: {{ the_most_price }}</p>
+    <p>Min price: {{ the_min_price }}</p>
+    <p>Average: {{ the_avg_price }}</p>
+
+<a href="{% url 'store:category'%}">Back to categories</a>
 
 {% endblock %}

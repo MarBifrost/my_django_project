@@ -10,7 +10,7 @@
     <h1>Categories:</h1>
     {%for category in categories%}
         <ul>
-    <a href="/category/{{category.id}}/{{product_views_by_category.name}}" target="_blank">
+    <a href="{% url 'store:product_list' category.id %}">
                 {{category.name}} ({{category.product_count}} products)</a>
         </ul>
     {%endfor%}
