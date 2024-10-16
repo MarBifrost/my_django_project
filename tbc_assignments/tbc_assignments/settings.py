@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
-from django.conf.global_settings import STATICFILES_DIRS
+from django.conf.global_settings import STATICFILES_DIRS, INTERNAL_IPS
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -138,4 +138,10 @@ LOGIN_REDIRECT_URL = 'store:index'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'store/static/store/media')
+
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+
+]
 
