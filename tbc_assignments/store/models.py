@@ -1,6 +1,7 @@
 
 from django.db import models
-from versatileimagefield.fields import VersatileImageField
+from django.db.models import ImageField
+# from versatileimagefield.fields import VersatileImageField
 
 
 
@@ -19,9 +20,9 @@ class Product(models.Model):
     price = models.IntegerField(null=True)
     quantity = models.IntegerField(null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
-    photo = VersatileImageField(
+    photo = ImageField(
         'image',
-        upload_to='products/',
+        upload_to='images/',
         null=True,
         blank=True,)
 
