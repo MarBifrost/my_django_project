@@ -2,13 +2,13 @@
     font-family: "Gfont";
     src: url("RobotoMono-VariableFont_wght.ttf") format("truetype");
     font-weight: 500;
+    font-size: 10px;
 }
 
 
 
 body {
     font-family: "Gfont", serif;
-    font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,4 +38,10 @@ h1, p {
 
 a {
     text-decoration: none;
+}
+
+.product_image {
+    display: block;
+    width: 100%;
+    max-width: 350px;
 }

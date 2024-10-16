@@ -1,4 +1,5 @@
 {%extends "./base.html"%}
+{% load static %}
 {%block title%}product details{%endblock%}
 
 {%block header%}
@@ -9,7 +10,7 @@
 {%block content%}
     <h1>{{product.name}}</h1>
     {% if product.photo %}
-        <img src="{{product.photo.url}}" alt="{{product.name}}">
+        <img class="product_image" src="{% static product.photo.url %}" alt="{{product.name}}">
     {% else %}
         <p>No image avaliable</p>
     {% endif %}
