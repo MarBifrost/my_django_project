@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+from user.models import CustomUser
 
 # Create your models here.
 class Order(models.Model):
@@ -14,3 +15,10 @@ class Order(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.last_name}-{self.product}"
+
+
+class UserCart(models.Model):
+    user=models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.user}'s cart"
