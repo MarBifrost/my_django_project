@@ -40,10 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store',
-    'order',
-    "debug_toolbar",
     'user',
+    'store',
+    'order.apps.OrderConfig',
+    "debug_toolbar"
 ]
 
 AUTH_USER_MODEL = 'user.CustomUser'

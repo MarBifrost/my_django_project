@@ -4,6 +4,6 @@ from user.models import CustomUser
 from order.models import UserCart
 
 @receiver(post_save, sender=CustomUser)
-def customer_cart(sender, instance, create, **kwargs):
-    if create:
+def customer_cart(signal, sender, instance, created, **kwargs):
+    if created:
         UserCart.objects.create(user=instance)
